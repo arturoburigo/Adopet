@@ -20,6 +20,7 @@ model Ong {
   whatsapp String
   city     String
   uf       String @db.Char(2)
+  address  String
   Pet      Pet[]
 
   @@unique([id, name])
@@ -39,6 +40,7 @@ model Pet {
   breed     String
   size      PetSize
   about     String
+  petImg    String
   microchip Boolean
   ong       Ong     @relation(fields: [ongId, ongName], references: [id, name])
   ongName   String
