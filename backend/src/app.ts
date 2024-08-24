@@ -1,20 +1,20 @@
-import express, { Router, Request, Response } from 'express';
-import { ongRoutes } from './controllers/ong/routes';
+import express, { Router, Request, Response, NextFunction } from 'express';
 import "express-async-errors";
-import { ZodError } from "zod";
-
+import { petsRoutes } from './controllers/pets/routes';
+import path from 'path';
+import multer from 'multer';
 
 export const app = express();
 const router = Router();
+
 app.use(express.json());
-ongRoutes(router)
-app.use(router)
-app.use((error: Error, request: Request, response: Response) => {
-    if (error instanceof ZodError) {
-      return response.status(400).json({ 
-        message: "Validation error", 
-        issues: error.format() 
-      });
-    }
-    return response.status(500).json({ message: "Internal server error" });
+app.use(router);
+petsRoutes(router);
+app.use('/files', express.static(path.resolve(__dirname,'..', 'tmp')));
+app.use((error: Error, request: Request, response: Response, next: NextFunction) => {
+  console.error('Error occurred:', error);
+  return response.status(500).json({ 
+      message: "Internal server error", 
+      error: error.message 
   });
+});

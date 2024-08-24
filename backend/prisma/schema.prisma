@@ -13,36 +13,26 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Ong {
-  id       String @id @default(uuid())
-  name     String
-  email    String
-  whatsapp String
-  city     String
-  uf       String @db.Char(2)
-  address  String
-  Pet      Pet[]
+model User {
+  id         String    @id @default(uuid())
+  name       String
+  email      String
+  password   String
+  created_at DateTime? @default(now())
 
-  @@unique([id, name])
-}
-
-enum PetSize {
-  SMALL
-  MEDIUM
-  LARGE
+  @@map("users")
 }
 
 model Pet {
-  id        String  @id @default(uuid())
-  name      String
-  age       String
-  specie    String
-  breed     String
-  size      PetSize
-  about     String
-  petImg    String
-  microchip Boolean
-  ong       Ong     @relation(fields: [ongId, ongName], references: [id, name])
-  ongName   String
-  ongId     String
+  id         String    @id @default(uuid())
+  name       String
+  age        String
+  breed      String
+  size       String
+  about      String
+  petImg     String
+  castrate   Boolean
+  created_at DateTime? @default(now())
+
+  @@map("pets")
 }
