@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { PetSize, RegisterPetUseCase } from "../../use-cases/register-pet";
+import { PetSize } from "../../use-cases/register-pet";
 import { makeRegisterPetUseCase } from "../../use-cases/factories/make-register-pet-use-case";
 
 export async function register(request: Request, response: Response) {

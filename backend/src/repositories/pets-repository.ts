@@ -2,4 +2,6 @@ import { Pet, Prisma } from "@prisma/client";
 
 export interface PetsRepositoryInterface {
     create(data: Prisma.PetCreateInput): Promise<Pet>;
+    searchMany(page: number): Promise<Pet[]>;
+    searchById(id: string): Promise<Pet | null>;
 }
