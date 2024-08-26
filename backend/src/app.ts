@@ -2,7 +2,7 @@ import express, { Router, Request, Response, NextFunction } from 'express';
 import "express-async-errors";
 import { petsRoutes } from './controllers/pets/routes';
 import path from 'path';
-import multer from 'multer';
+import { userRoutes } from './controllers/user/routes';
 
 export const app = express();
 const router = Router();
@@ -10,6 +10,7 @@ const router = Router();
 app.use(express.json());
 app.use(router);
 petsRoutes(router);
+userRoutes(router);
 app.use('/files', express.static(path.resolve(__dirname,'..', 'tmp')));
 app.use((error: Error, request: Request, response: Response, next: NextFunction) => {
   console.error('Error occurred:', error);
@@ -18,3 +19,4 @@ app.use((error: Error, request: Request, response: Response, next: NextFunction)
       error: error.message 
   });
 });
+
