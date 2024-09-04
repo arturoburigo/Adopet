@@ -15,6 +15,8 @@ interface RegisterPetUseCaseRequest {
     about: string;
     petImg: string;
     castrate: boolean;
+    vacinated: boolean;
+    whatsapp: string;
 }
 
 interface RegisterPetUseCaseResponse {
@@ -31,7 +33,9 @@ export class RegisterPetUseCase {
         breed,
         castrate,
         petImg,
-        size
+        size,
+        vacinated,
+        whatsapp
     }: RegisterPetUseCaseRequest): Promise<RegisterPetUseCaseResponse> {
         const pet = await this.petsRepository.create({
             about,
@@ -40,7 +44,9 @@ export class RegisterPetUseCase {
             castrate,
             name,
             size: PetSize[size],
-            petImg
+            petImg,
+            vacinated,
+            whatsapp
         });
 
         return { pet }

@@ -30,8 +30,10 @@ model Pet {
   breed      String
   size       String
   about      String
+  whatsapp   String
   petImg     String
   castrate   Boolean
+  vacinated  Boolean
   created_at DateTime? @default(now())
 
   @@map("pets")

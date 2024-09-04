@@ -6,11 +6,12 @@ export async function register(request: Request, response: Response) {
     console.log("Request Body:", request.body);
     console.log("Request File:", request.file);
 
-    const { about, age, breed, castrate, name, size } = request.body;
+    const { about, age, breed, castrate, name, size, whatsapp, vacinated } = request.body;
     const petImg = request.file?.filename;
 
     // Converter castrate para Boolean, aceitando "true" e "false"
     const castrateBoolean = castrate === 'true' ? true : castrate === 'false' ? false : undefined;
+    const vacinatedBoolean = vacinated === 'true' ? true : vacinated === 'false' ? false : false;
 
     // Validar a presença de todos os campos e enviar mensagem específica para o campo faltante
     if (!name) {
@@ -37,6 +38,12 @@ export async function register(request: Request, response: Response) {
     if (castrateBoolean === undefined) {
         return response.status(400).send({ error: 'Invalid value for castrate' });
     }
+    if (vacinatedBoolean === undefined) {
+        return response.status(400).send({ error: 'Invalid value for vacinated' });
+    }
+    if (!whatsapp) {
+        return response.status(400).send({ error: 'Whatsapp is required' });
+    }
 
     const sizeEnum = PetSize[size as keyof typeof PetSize];
     
@@ -47,7 +54,9 @@ export async function register(request: Request, response: Response) {
             about, 
             age, 
             breed, 
-            castrate: castrateBoolean, // Enviar como Boolean
+            castrate: castrateBoolean,
+            vacinated: vacinatedBoolean,
+            whatsapp,
             name, 
             petImg, 
             size: sizeEnum 
