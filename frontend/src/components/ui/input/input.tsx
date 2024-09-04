@@ -5,10 +5,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     placeholder: string;
 }
 
-export function Input({placeholder, type= 'password'}: InputProps) {
+export function Input({placeholder, type= 'password', ...rest}: InputProps) {
     return (
-       <InputContainer>
-        <input type={type} placeholder={placeholder} />
+       <InputContainer >
+        <input {...rest} type={type} placeholder={placeholder} />
        </InputContainer>
     )
 }

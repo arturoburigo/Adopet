@@ -1,22 +1,49 @@
-import { Input } from '../../../components/ui/input/input'
-import { SignInContainer, SignInContent, LinktoSignUp } from './styles'
-import apalogo from '../../../assets/apalogo.svg'
-import { Button } from '../../../components/ui/button/button'
+import { Input } from '../../../components/ui/input/input';
+import { SignInContainer, SignInContent, LinktoSignUp } from './styles';
+import apalogo from '../../../assets/apalogo.svg';
+import { Button } from '../../../components/ui/button/button';
+import { useState } from 'react';
+import { signIn } from '../../../api/sign-in';
+import { Link } from 'react-router-dom';
 
 export function SignIn() {
-    return (
-      <SignInContainer>
-        <SignInContent>
-          <h2>APA São Ludgero</h2>
-          <img src={apalogo} />
-          <Input placeholder='E-mail' type='email'/>
-          <Input placeholder='Senha' type='password' />
-          <Button text='Entrar'/>
-          <LinktoSignUp>
-            <a href="">Cadastrar</a>
-          </LinktoSignUp>
-        </SignInContent>
-      </SignInContainer>
-    )
-  }
-  
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSignIn = async () => {
+    try {
+      const data = await signIn({ email, password });
+      console.log('Sign-in successful:', data);
+    } catch (error) {
+      console.error('Sign-in failed:', error);
+    }
+  };
+
+  return (
+    <SignInContainer>
+      <SignInContent>
+        <h2>APA São Ludgero</h2>
+        <img src={apalogo} alt="APA Logo" />
+        <Input 
+          placeholder='E-mail' 
+          type='email' 
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        <Input 
+          placeholder='Senha' 
+          type='password'
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+        />
+        <Button text='Entrar' onClick={handleSignIn} />
+        <LinktoSignUp>
+          <Link to='/sign-up'>
+            <a href="#">Cadastrar</a>
+
+          </Link>
+        </LinktoSignUp>
+      </SignInContent>
+    </SignInContainer>
+  );
+}
