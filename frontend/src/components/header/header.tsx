@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import{ useState } from 'react';
 import apalogo from '../../assets/apalogo.svg';
 import { HeaderContainer, NavLinks, SocialIcons, LogoSection, HamburgerIcon, MobileMenu } from './styles';
 import { FaFacebook, FaInstagram, FaBars, FaTimes } from 'react-icons/fa'; 

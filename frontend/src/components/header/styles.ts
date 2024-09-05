@@ -32,7 +32,11 @@ export const LogoSection = styled.div`
   }
 `;
 
-export const NavLinks = styled.nav`
+interface NavLinksProps {
+  isOpen: boolean;
+}
+
+export const NavLinks = styled.nav<NavLinksProps>`
   display: flex;
   flex: 1;
   justify-content: center;
