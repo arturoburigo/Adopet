@@ -22,4 +22,13 @@ export class PrismaPetsRepository implements PetsRepositoryInterface {
         })
         return pet;
     }
+
+    async deletePet(id: string): Promise<Pet | null> {
+        const pet = await prisma.pet.delete({
+            where: {
+                id
+            }
+        })
+        return pet;
+    }
 }
