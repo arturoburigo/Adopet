@@ -7,6 +7,11 @@ export enum PetSize {
     "large"
 }
 
+export enum PetGender {
+    "F",
+    "M"
+}
+
 interface RegisterPetUseCaseRequest {
     name: string;
     age: string;
@@ -17,6 +22,7 @@ interface RegisterPetUseCaseRequest {
     castrate: boolean;
     vacinated: boolean;
     whatsapp: string;
+    sex: PetGender
 }
 
 interface RegisterPetUseCaseResponse {
@@ -44,6 +50,7 @@ export class RegisterPetUseCase {
             castrate,
             name,
             size: PetSize[size],
+            sex: PetGender[size],
             petImg,
             vacinated,
             whatsapp

@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import { PetSize } from "../../use-cases/register-pet";
+import { PetGender } from "../../use-cases/register-pet";
 import { makeRegisterPetUseCase } from "../../use-cases/factories/make-register-pet-use-case";
 
 export async function register(request: Request, response: Response) {
@@ -46,7 +47,7 @@ export async function register(request: Request, response: Response) {
     }
 
     const sizeEnum = PetSize[size as keyof typeof PetSize];
-    
+    const sizeGender = PetGender[size as keyof typeof PetGender];
     try {
         const registerPetUseCase = makeRegisterPetUseCase();
         
@@ -59,7 +60,8 @@ export async function register(request: Request, response: Response) {
             whatsapp,
             name, 
             petImg, 
-            size: sizeEnum 
+            size: sizeEnum,
+            sex: sizeGender
         });
         
         response.status(201).send({ message: "Pet registered successfully" });

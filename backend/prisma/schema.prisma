@@ -34,6 +34,7 @@ model Pet {
   petImg     String
   castrate   Boolean
   vacinated  Boolean
+  sex        String
   created_at DateTime? @default(now())
 
   @@map("pets")

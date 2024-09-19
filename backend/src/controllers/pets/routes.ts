@@ -14,5 +14,5 @@ import { deletePetById } from "./deletebyId";
         router.post('/pets', upload.single("petImg"), isAuthenticated, register);
         router.get('/pets', search);
         router.get('/pets/:petId', searchById);
-        router.delete('/pets/:id', isAuthenticated,     deletePetById);
+        router.delete('/pets/:id',     deletePetById);
     }
