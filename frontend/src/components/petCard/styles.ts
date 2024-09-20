@@ -6,7 +6,7 @@ export const CardContainer = styled.div`
   background-color: #fff;
   width: 334px;
   border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.15);
 
   @media (max-width: 768px) {
     width: 290px;

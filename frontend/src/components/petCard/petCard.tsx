@@ -10,7 +10,7 @@ interface PetCardProps {
   onClick: () => void;
 }
 
-export function PetCard({ img, isAdmin = true, petName, onClick }: PetCardProps) {  // Valor padrão definido aqui
+export function PetCard({ img, isAdmin = true, petName, onClick }: PetCardProps) {  // GenderIconValor padrão definido aqui
   return (
     <CardContainer>
       <PetImage src={img} alt="petImg" />
