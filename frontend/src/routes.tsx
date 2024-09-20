@@ -5,6 +5,7 @@ import { SignUp } from './pages/auth/sign-up/sign-up'
 //import { Home } from './pages/app/home/home'
 import Home from './pages/app/home/home'
 import AdminHome from './pages/app/admin/adminHome'
+import Donate from './pages/app/donate/donate'
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ export const router = createBrowserRouter([
       {
         path: 'admin',
         element: <AdminHome />
+      },
+      {
+        path: 'doacoes',
+        element: <Donate />
       }
     ]
   }
