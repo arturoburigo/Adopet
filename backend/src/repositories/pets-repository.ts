@@ -5,4 +5,5 @@ export interface PetsRepositoryInterface {
     searchMany(page: number): Promise<Pet[]>;
     searchById(id: string): Promise<Pet | null>;
     deletePet(id: string): Promise<Pet | null>;
+    editPet(id: string, data: Prisma.PetUpdateInput): Promise<Pet | null>;
 }

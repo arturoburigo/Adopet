@@ -25,6 +25,7 @@ export default function AdminHome() {
         }
 
         fetchPets();
+        
     }, []);
 
     // Função para deletar o pet

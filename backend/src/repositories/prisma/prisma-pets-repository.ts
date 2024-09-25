@@ -31,4 +31,14 @@ export class PrismaPetsRepository implements PetsRepositoryInterface {
         })
         return pet;
     }
+    
+    async editPet(id: string, data: Prisma.PetUpdateInput): Promise<Pet | null> {
+        const pet = await prisma.pet.update({
+            where: {
+                id
+            },
+            data
+        })
+        return pet;
+    }
 }

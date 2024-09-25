@@ -6,6 +6,7 @@ import { search } from "./seach";
 import { searchById } from "./searchbyId";
 import { isAuthenticated } from "../../middlewares/isAuthenticated";
 import { deletePetById } from "./deletebyId";
+import { editPet } from "./editPet";
 
 
     export async function petsRoutes(router: Router){
@@ -14,5 +15,6 @@ import { deletePetById } from "./deletebyId";
         router.post('/pets', upload.single("petImg"), isAuthenticated, register);
         router.get('/pets', search);
         router.get('/pets/:petId', searchById);
-        router.delete('/pets/:id',     deletePetById);
+        router.delete('/pets/:id', deletePetById);
+        router.put('/pets/:id', upload.single("petImg"), editPet);
     }
