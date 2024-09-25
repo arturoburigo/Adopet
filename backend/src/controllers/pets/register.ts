@@ -4,9 +4,6 @@
     import { makeRegisterPetUseCase } from "../../use-cases/factories/make-register-pet-use-case";
 
     export async function register(request: Request, response: Response) {
-        console.log("Request Body:", request.body);
-        console.log("Request File:", request.file);
-
         const { about, age, breed, castrate, name, size, whatsapp, vacinated } = request.body;
         const petImg = request.file?.filename;
 

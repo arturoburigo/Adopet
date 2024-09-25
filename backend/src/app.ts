@@ -4,6 +4,7 @@ import cors from 'cors';  // Importa o pacote cors
 import { petsRoutes } from './controllers/pets/routes';
 import path from 'path';
 import { userRoutes } from './controllers/user/routes';
+import { eventRoutes } from './controllers/event/routes';
 
 export const app = express();
 const router = Router();
@@ -14,7 +15,7 @@ app.use(router);
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')));
 petsRoutes(router);
 userRoutes(router);
-app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')));
+eventRoutes(router);
 app.use((error: Error, request: Request, response: Response, next: NextFunction) => {
   console.error('Error occurred:', error);
   return response.status(500).json({ 

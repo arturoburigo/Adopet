@@ -16,5 +16,5 @@ import { editPet } from "./editPet";
         router.get('/pets', search);
         router.get('/pets/:petId', searchById);
         router.delete('/pets/:id', deletePetById);
-        router.put('/pets/:id', upload.single("petImg"), editPet);
+        router.put('/pets/:id', upload.single("petImg"), isAuthenticated, editPet);
     }

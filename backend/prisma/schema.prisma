@@ -39,3 +39,14 @@ model Pet {
 
   @@map("pets")
 }
+
+model Event {
+  id          String    @id @default(uuid())
+  title       String
+  img         String
+  description String
+  date        String
+  created_at  DateTime? @default(now())
+
+  @@map("events")
+}
