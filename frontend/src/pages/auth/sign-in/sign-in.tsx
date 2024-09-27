@@ -4,16 +4,18 @@ import apalogo from '../../../assets/apalogo.svg';
 import { Button } from '../../../components/ui/button/button';
 import { useState } from 'react';
 import { signIn } from '../../../api/sign-in';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate(); // Hook to programmatically navigate
 
   const handleSignIn = async () => {
     try {
-      const data = await signIn({ email, password });
-      console.log('Sign-in successful:', data);
+      const token = await signIn({ email, password });
+      console.log('Sign-in successful:', token);
+      navigate('/admin'); // Redirect to admin page
     } catch (error) {
       console.error('Sign-in failed:', error);
     }
@@ -40,7 +42,6 @@ export function SignIn() {
         <LinktoSignUp>
           <Link to='/sign-up'>
             <a href="#">Cadastrar</a>
-
           </Link>
         </LinktoSignUp>
       </SignInContent>

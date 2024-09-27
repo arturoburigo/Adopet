@@ -6,6 +6,8 @@ export interface SignInBody {
 }
 
 export async function signIn({ email, password }: SignInBody) {
-    await api.post('/sessions', { email, password });
-
+    const response = await api.post('/sessions', { email, password });
+    const { token } = response.data; // Assume the token is returned in this way
+    localStorage.setItem('token', token); // Save token to local storage
+    return token; // Return token for further use
 }

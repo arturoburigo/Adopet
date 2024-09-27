@@ -1,21 +1,17 @@
-import { createBrowserRouter } from 'react-router-dom'
-import App from './App'
-import { SignIn } from './pages/auth/sign-in/sign-in'
-import { SignUp } from './pages/auth/sign-up/sign-up'
-//import { Home } from './pages/app/home/home'
-import Home from './pages/app/home/home'
-import AdminHome from './pages/app/admin/adminHome'
-import Donate from './pages/app/donate/donate'
+import { createBrowserRouter } from 'react-router-dom';
+import App from './App';
+import { SignIn } from './pages/auth/sign-in/sign-in';
+import { SignUp } from './pages/auth/sign-up/sign-up';
+import Home from './pages/app/home/home';
+import AdminHome from './pages/app/admin/adminHome';
+import Donate from './pages/app/donate/donate';
+import ProtectedRoute from './lib/adminProtectionRoute';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      /*{
-        index: true, // Adiciona a rota inicial como 'Home'
-        element: <Home />
-      },*/
       {
         path: 'sign-in',
         element: <SignIn />
@@ -30,7 +26,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'admin',
-        element: <AdminHome />
+        element: (
+          <ProtectedRoute>
+            <AdminHome />
+          </ProtectedRoute>
+        )
       },
       {
         path: 'doacoes',
@@ -38,4 +38,4 @@ export const router = createBrowserRouter([
       }
     ]
   }
-])
+]);
