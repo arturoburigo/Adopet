@@ -16,15 +16,6 @@ export class PrismaEventsRepository implements EventsRepositoryInterface{
         return event
     }
 
-    async searchById(id: string) {
-        const event = await prisma.event.findUnique({
-            where: {
-                id
-            }
-        })
-        return event
-    }
-
     async deleteEvent(id: string) {
         const event = await prisma.event.delete({
             where: {

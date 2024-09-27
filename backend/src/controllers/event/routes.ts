@@ -1,7 +1,15 @@
-import { Router } from "express"; // Importa Router
+import { Router } from "express";
+import uploadConfig from "../../config/multer";
 import { register } from "./register";
-import { isAuthenticated } from "../../middlewares/isAuthenticated";
+import multer from "multer";
+import { search } from "./search";
+import { deleteEvent } from "./delete";
 
 export async function eventRoutes(router: Router) {
-  router.post("/event", register, isAuthenticated);
+  const upload = multer(uploadConfig.upload("./tmp"));
+  router.post("/event", upload.single("img"), register);
+  router.get("/event", search);
+  router.delete("/event/:id", deleteEvent);
+  
 }
+  

@@ -12,6 +12,7 @@ const router = Router();
 app.use(cors()); // Ativa o CORS
 app.use(express.json());
 app.use(router);
+app.use('/events', eventRoutes);  
 app.use('/files', express.static(path.resolve(__dirname, '..', 'tmp')));
 petsRoutes(router);
 userRoutes(router);
