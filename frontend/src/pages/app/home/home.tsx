@@ -1,7 +1,6 @@
 import { Header } from "../../../components/header/header";        
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button } from '../../../components/ui/button/button';
 import { PetCard } from '../../../components/petCard/petCard';
 import valter from '../../../../src/assets/valter.svg';
 import calabresa from '../../../../src/assets/calabresa.svg';
@@ -31,8 +30,8 @@ import tigresa from '../../../../src/assets/tigresa.svg';
         return ( // key={pet.id} 
             <div>
             <Header/>
-            <h1 style={{ margin: '50px', padding: '10px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>Veja os pets disponíveis para adoção!</h1>
-                <div style={{ margin: '50px', padding: '50px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
+            <h1 style={{ margin: '20px', padding: '10px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>Veja os pets disponíveis para adoção!</h1>
+                <div style={{ margin: '10px', padding: '20px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>
                     {pets.map((pet) => (
                     <PetCard
                         key={pet.id}

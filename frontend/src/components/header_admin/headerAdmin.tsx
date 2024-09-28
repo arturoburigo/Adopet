@@ -1,8 +1,7 @@
 import{ useState } from 'react';
 import apalogo from '../../assets/apalogo.svg';
-import { HeaderContainer, NavLinks, SocialIcons, LogoSection, HamburgerIcon, MobileMenu } from './styles';
+import { HeaderContainer, NavLinks, LogoSection, HamburgerIcon, MobileMenu } from './styles';
 import { FaBars, FaTimes } from 'react-icons/fa'; 
-import { Button } from '../ui/button/button';
 
 export function HeaderAdmin() {
     const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +25,7 @@ export function HeaderAdmin() {
                 <a href="/">Início</a>
                 <a href="/eventos">Eventos</a>
             </NavLinks>
-            <SocialIcons>
-                <Button text='Adicionar pet' />
-            </SocialIcons>
+
             {isOpen && (
                 <MobileMenu>
                     <a href="/">Início</a>
@@ -41,3 +38,7 @@ export function HeaderAdmin() {
         </HeaderContainer>
     );
 }
+
+//            <SocialIcons>
+//<Button text='Adicionar pet' />
+//</SocialIcons>
