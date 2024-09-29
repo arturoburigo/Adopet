@@ -1,6 +1,6 @@
 import { Header } from "../../../components/header/header"
 import { ContainerMain, ContainerDonate, Image, SectionPix } from "./style"
-import img from './../../../assets/imgDonate.jpg';
+import img from '../../../assets/imgDonate.jpg';
 
 export default function Donate() {
   return (
@@ -14,11 +14,7 @@ export default function Donate() {
           <SectionPix>
             <h1>Faça seu pix!</h1>
 
-            <section></section>
-
-            <div>Simulando QRCode</div>
-
-            <section></section>
+            <div></div> {/** div para por o qrcode */}
 
             <p>Cada contribuição ajuda a fornecer abrigo, comida, vacinas e cuidados veterinários essenciais para animais resgatados. Juntos, podemos mudar vidas – uma adoção de cada vez.</p>
           </SectionPix>
