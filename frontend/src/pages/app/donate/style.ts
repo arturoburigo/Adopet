@@ -54,7 +54,7 @@ export const SectionPix = styled.section`
 
   & h1 {
     margin: 1%;
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 400;
     letter-spacing: 2px;
 
@@ -62,7 +62,7 @@ export const SectionPix = styled.section`
   }
 
   & p {
-    width: 350px;
+    width: 90%;
     text-align: justify;
     margin: 0 15% 1% 15%;
     color: black;
@@ -71,40 +71,10 @@ export const SectionPix = styled.section`
   }
 
   & div {
-    width: 350px;
-    height: 350px;
+    width: 18em;
+    height: 18em;
     border: 1px solid black;
     color: black;
-  }
-
-  @media (max-width: 480px) {
-    /* Limite para telas muito pequenas */
-    width: 100%;
-
-    & h1 {
-      margin: 1.5%;
-      font-size: 2em;
-      font-weight: 400;
-      letter-spacing: 2px;
-
-      color: black;
-    }
-
-    & p {
-      width: 250px;
-      text-align: justify;
-      margin: 0 15% 1% 15%;
-      color: black;
-      font-weight: bold;
-      font-size: 1em;
-    }
-
-    & div {
-      width: 250px;
-      height: 250px;
-      border: 1px solid black;
-      color: black;
-    }
   }
 
   @media (max-width: 768px) {
@@ -121,7 +91,7 @@ export const SectionPix = styled.section`
     }
 
     & p {
-      width: 300px;
+      width: 20em;
       text-align: justify;
       margin: 0 15% 1% 15%;
       color: black;
@@ -130,8 +100,37 @@ export const SectionPix = styled.section`
     }
 
     & div {
-      width: 300px;
-      height: 300px;
+      width: 20em;
+      border: 1px solid black;
+      color: black;
+    }
+  }
+
+  @media (max-width: 480px) {
+    /* Limite para telas muito pequenas */
+    width: 100%;
+
+    & h1 {
+      margin: 1.5%;
+      font-size: 2em;
+      font-weight: 400;
+      letter-spacing: 2px;
+
+      color: black;
+    }
+
+    & p {
+      width: 15em;
+      text-align: justify;
+      margin: 0 15% 1% 15%;
+      color: black;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    & div {
+      width: 15em;
+      height: 15em;
       border: 1px solid black;
       color: black;
     }
