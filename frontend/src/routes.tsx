@@ -1,17 +1,23 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from './App';
-import { SignIn } from './pages/auth/sign-in/sign-in';
-import { SignUp } from './pages/auth/sign-up/sign-up';
 import Home from './pages/app/home/home';
-import AdminHome from './pages/app/admin/adminHome';
+import AdminHome from './pages/auth/admin-home/adminHome';
 import Donate from './pages/app/donate/donate';
 import ProtectedRoute from './lib/adminProtectionRoute';
+import { Eventos } from './pages/app/eventos/eventos';
+import { EventAdmin } from './pages/auth/event-admin/eventAdmin';
+import { SignIn } from './pages/auth/sign-in/sign-in';
+import { SignUp } from './pages/auth/sign-up/sign-up';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
+      {
+        path: '/',
+        element: <Navigate to="/home" replace /> // Redireciona para /home
+      },
       {
         path: 'sign-in',
         element: <SignIn />
@@ -35,6 +41,18 @@ export const router = createBrowserRouter([
       {
         path: 'doacoes',
         element: <Donate />
+      },
+      {
+        path: 'eventos',
+        element: <Eventos/>
+      },
+      {
+        path: 'evento-admin',
+        element: (
+          <ProtectedRoute>
+            <EventAdmin />
+          </ProtectedRoute>
+        )
       }
     ]
   }

@@ -45,10 +45,10 @@ export default function AdminHome() {
                 {pets.map((pet) => (
                     <PetCard 
                         key={pet.id} 
-                        img={`http://localhost:3333/files/${pet.petImg}`} // Caminho absoluto
+                        img={`http://localhost:3333/files/${pet.petImg}`}
                         petName={pet.name}
-                        isAdmin={true}  // Exibir os botões de admin
-                        onClick={() => handleDeletePet(pet.id)} // Passar a função de deletar
+                        isAdmin={true}
+                        onClick={() => handleDeletePet(pet.id)}
                     />
                 ))}
             </AdminHomeContainer>
