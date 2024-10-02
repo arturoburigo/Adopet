@@ -17,4 +17,12 @@ export const ButtonContainer = styled.button`
     &:hover {
         background: ${props => props.theme["blue-300"]};  /* Cor muda ao passar o mouse por cima */
     }
+
+    @media (max-width: 768px) {
+        width: 250px;   
+    }
+
+    @media (max-width: 480px) {
+        width: 250px;
+    }
 `;

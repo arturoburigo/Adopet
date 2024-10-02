@@ -5,7 +5,7 @@ import { PetCard } from '../../../components/petCard/petCard';
 import valter from '../../../../src/assets/valter.svg';
 import calabresa from '../../../../src/assets/calabresa.svg';
 import tigresa from '../../../../src/assets/tigresa.svg';
-import { Modal } from "../../../components/modal/modal";
+import { ModalAdmin } from "../../../components/modalAdmin/modalAdmin";
 
 //export function Home(){
     type Pet = {
@@ -29,7 +29,7 @@ import { Modal } from "../../../components/modal/modal";
 
         return ( // key={pet.id} 
             <div>
-            <Modal />
+            <ModalAdmin />
             
             <Header/>
             <h1 style={{ margin: '20px', padding: '10px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap' }}>Veja os pets disponíveis para adoção!</h1>

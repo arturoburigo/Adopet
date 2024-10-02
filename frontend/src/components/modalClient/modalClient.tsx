@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { GenderIcon } from "../petCard/styles";
 import { Button } from "../ui/button/button";
 import {
@@ -8,9 +9,16 @@ import {
   PetImage,
   DetailsSection,
   InfoDiv,
+  Close
 } from "./style";
 
-export function Modal() {
+export function ModalClient() {
+  const navigate = useNavigate()
+
+  const close = () => {
+    navigate("/home");
+  }
+
   return (
     <ContainerMain>
       <BlurDiv />
@@ -18,6 +26,8 @@ export function Modal() {
       <ContainerCenter>
         <ModalSection>
           <PetImage src="src\assets\imgDonate.jpg" alt="pet-image" />
+
+          <Close onClick={close}>X</Close>
 
           <DetailsSection>
             <div
@@ -53,7 +63,7 @@ export function Modal() {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    gap: "20px", // Espaçamento interno
+                    gap: "20px",
                   }}
                 >
                   <InfoDiv style={{ textAlign: "left" }}>
@@ -77,7 +87,7 @@ export function Modal() {
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
-                marginTop: "30px", // Margem superior ajustada
+                marginTop: "30px",
                 gap: "15px",
               }}
             >

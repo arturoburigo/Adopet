@@ -18,8 +18,6 @@ export const CardContainer = styled.div`
   }
 `;
 
-
-
 export const PetImage = styled.img`
   width: 100%;
   min-height: 330px;
