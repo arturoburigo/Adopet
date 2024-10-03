@@ -8,9 +8,10 @@ export enum PetSize {
 }
 
 export enum PetGender {
-    "F",
-    "M"
+    F = "F",
+    M = "M"
 }
+
 
 interface RegisterPetUseCaseRequest {
     name: string;
@@ -41,7 +42,8 @@ export class RegisterPetUseCase {
         petImg,
         size,
         vacinated,
-        whatsapp
+        whatsapp,
+        sex
     }: RegisterPetUseCaseRequest): Promise<RegisterPetUseCaseResponse> {
         const pet = await this.petsRepository.create({
             about,
@@ -50,7 +52,7 @@ export class RegisterPetUseCase {
             castrate,
             name,
             size: PetSize[size],
-            sex: PetGender[size],
+            sex: sex,
             petImg,
             vacinated,
             whatsapp

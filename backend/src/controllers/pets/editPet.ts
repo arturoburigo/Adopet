@@ -6,7 +6,6 @@ import { makeEditPetByIdUseCase } from "../../use-cases/factories/make-edit-pet-
 export async function editPet(request: Request, response: Response) {
     const id = request.params.id;  // Recebendo o ID pela rota
     const { about, age, breed, castrate, name, size, whatsapp, vacinated } = request.body;
-    const petImg = request.file?.filename;
 
     // Converter castrate e vacinated para Boolean
     const castrateBoolean = castrate === 'true' ? true : castrate === 'false' ? false : undefined;
@@ -31,9 +30,7 @@ export async function editPet(request: Request, response: Response) {
     if (!about) {
         return response.status(400).send({ error: 'About is required' });
     }
-    if (!petImg) {
-        return response.status(400).send({ error: 'At least one image is required' });
-    }
+
     if (!['small', 'medium', 'large'].includes(size)) {
         return response.status(400).send({ error: 'Invalid size value' });
     }
@@ -62,7 +59,6 @@ export async function editPet(request: Request, response: Response) {
             vacinated: vacinatedBoolean,
             whatsapp,
             name, 
-            petImg, 
             size: sizeEnum,
             sex: sizeGender
         });

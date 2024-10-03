@@ -45,11 +45,13 @@ export const PetName = styled.p`
   margin: 10px 0;
 `;
 
-export const GenderIcon = styled.span`
+export const GenderIcon = styled.span<{ color: string }>`
   font-size: 24px;
-  color: blue;
+  color: ${({ color }) => color}; // Use the passed color
   margin-left: 8px;
 `;
+
+
 
 export const ButtonContainer = styled.div`
   display: flex;

@@ -5,10 +5,11 @@ import { PetCard } from '../../../components/petCard/petCard';
 import { Container, Title, HomeContainer } from './styles'; 
 import { getAllPets } from '../../../api/get-all-pets'; 
 
-type Pet = {
+export type Pet = {
     id: number;
     name: string;
     petImg: string; 
+    sex: 'F' | 'M';
 };
 
 const PetList: React.FC = () => {
@@ -45,6 +46,7 @@ const PetList: React.FC = () => {
                             img={`http://localhost:3333/files/${pet.petImg}`}
                             petName={pet.name}
                             isAdmin={false}
+                            sex={pet.sex} // Pass the sex property
                             onClick={() => handlePetClick(pet.id)}
                         />
                     ))}

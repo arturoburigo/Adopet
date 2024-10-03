@@ -19,7 +19,6 @@ interface EditPetUseCaseRequest {
     breed: string;
     size: PetSize;
     about: string;
-    petImg: string;
     castrate: boolean;
     vacinated: boolean;
     whatsapp: string;
@@ -40,7 +39,6 @@ export class EditPetUseCase {
         about,
         breed,
         castrate,
-        petImg,
         size,
         vacinated,
         whatsapp,
@@ -53,7 +51,6 @@ export class EditPetUseCase {
             name,
             size: PetSize[size],
             sex: PetGender[size],
-            petImg,
             vacinated,
             whatsapp
         });

@@ -7,25 +7,31 @@ interface PetCardProps {
   img: string;
   isAdmin?: boolean; 
   petName: string;
-  onClick: () => void;
+  sex: 'F' | 'M';  // Ensure this matches your API's response
+  onClickEdit: () => void;  // Function called when clicking Edit
+  onClickDelete: () => void; // Function called when clicking Delete
 }
 
-export function PetCard({ img, isAdmin = true, petName, onClick }: PetCardProps) {  // GenderIconValor padrão definido aqui
+export function PetCard({ img, isAdmin = true, petName, sex, onClickEdit, onClickDelete }: PetCardProps) {
+  // Set icon and color based on sex
+  const genderIcon = sex === 'M' ? '♂️' : '♀️';  // Male or female icon
+  const genderColor = sex === 'M' ? 'blue' : 'pink';  // Color based on sex
+
   return (
     <CardContainer>
       <PetImage src={img} alt="petImg" />
       <PetInfo>
         <PetName>{petName}</PetName>
-        <GenderIcon>♂️</GenderIcon> {/* Ícone do gênero */}
+        <GenderIcon color={genderColor}>{genderIcon}</GenderIcon> {/* Pass color */}
       </PetInfo>
       {isAdmin ? (
         <ButtonContainer>
-          <ButtonEdit text="Editar" />
-          <ButtonDelete text="Excluir" onClick={() => { console.log("Excluir clicado!"); onClick && onClick(); }} />
+          <ButtonEdit text="Editar" onClick={onClickEdit} /> 
+          <ButtonDelete text="Excluir" onClick={onClickDelete} /> 
         </ButtonContainer>
       ) : (
         <ButtonContainer>
-          <Button text='Quero adotar' />      
+          <Button text="Quero adotar" />      
         </ButtonContainer>
       )}
     </CardContainer>

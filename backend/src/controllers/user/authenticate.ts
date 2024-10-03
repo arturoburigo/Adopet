@@ -19,7 +19,7 @@ export async function authenticate(req: Request, res: Response) {
 
     const token = sign({}, process.env.JWT_SECRET as string, {
       subject: user.id,
-      expiresIn: "10m",
+      expiresIn: "1d",
     });
 
     const refreshToken = sign({}, process.env.JWT_SECRET as string, {
