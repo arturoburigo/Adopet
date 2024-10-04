@@ -90,23 +90,23 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
                 <CloseButton onClick={onClose}>X</CloseButton>
                 <h2>{petData ? 'Editar Informação do Pet' : 'Adicionar Novo Pet'}</h2>
 
-                <Label>Name:</Label>
+                <Label>Nome:</Label>
                 <Input type="text" name="name" value={pet.name} onChange={handleInputChange} />
 
-                <Label>Age:</Label>
+                <Label>Idade:</Label>
                 <Input type="text" name="age" value={pet.age} onChange={handleInputChange} />
 
-                <Label>Breed:</Label>
+                <Label>Raça:</Label>
                 <Input type="text" name="breed" value={pet.breed} onChange={handleInputChange} />
 
-                <Label>Size:</Label>
+                <Label>Porte:</Label>
                 <Select name="size" value={pet.size} onChange={handleInputChange}>
                     <option value="small">Pequeno</option>
                     <option value="medium">Médio</option>
                     <option value="large">Grande</option>
                 </Select>
 
-                <Label>About:</Label>
+                <Label>Sobre o pet:</Label>
                 <TextArea name="about" value={pet.about} onChange={handleInputChange} />
 
                 <Label>Whatsapp:</Label>
@@ -122,7 +122,7 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
                     <Checkbox type="checkbox" name="vacinated" checked={pet.vacinated} onChange={handleCheckboxChange} />
                 </Label>
 
-                <Label>Sex:</Label>
+                <Label>Sexo:</Label>
                 <Select name="sex" value={pet.sex} onChange={handleInputChange}>
                     <option value="F">Feminino</option>
                     <option value="M">Masculino</option>

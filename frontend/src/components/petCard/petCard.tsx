@@ -7,15 +7,17 @@ interface PetCardProps {
   img: string;
   isAdmin?: boolean; 
   petName: string;
-  sex: 'F' | 'M';  // Ensure this matches your API's response
-  onClickEdit: () => void;  // Function called when clicking Edit
-  onClickDelete: () => void; // Function called when clicking Delete
+  sex: 'F' | 'M'; 
+  onClickEdit: () => void; 
+  onClickDelete: () => void;
+  onClickAdopt: () => void; 
 }
 
-export function PetCard({ img, isAdmin = true, petName, sex, onClickEdit, onClickDelete }: PetCardProps) {
-  // Set icon and color based on sex
-  const genderIcon = sex === 'M' ? '♂️' : '♀️';  // Male or female icon
-  const genderColor = sex === 'M' ? 'blue' : 'pink';  // Color based on sex
+export function PetCard({ img, isAdmin = true, petName, sex, onClickEdit, onClickDelete, onClickAdopt }: PetCardProps) {
+
+  const genderIcon = sex === 'M' ? '♂️' : '♀️'; 
+  const genderColor = sex === 'M' ? '#0303fc' : '#fc03e7';
+
 
   return (
     <CardContainer>
@@ -31,7 +33,7 @@ export function PetCard({ img, isAdmin = true, petName, sex, onClickEdit, onClic
         </ButtonContainer>
       ) : (
         <ButtonContainer>
-          <Button text="Quero adotar" />      
+          <Button text="Saber mais" onClick={onClickAdopt} />  {/* Call onClickAdopt here */}
         </ButtonContainer>
       )}
     </CardContainer>
