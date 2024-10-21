@@ -8,6 +8,7 @@ import { Eventos } from './pages/app/eventos/eventos';
 import { EventAdmin } from './pages/auth/event-admin/eventAdmin';
 import { SignIn } from './pages/auth/sign-in/sign-in';
 import { SignUp } from './pages/auth/sign-up/sign-up';
+import Sobre from './pages/app/sobre/sobre';
 
 export const router = createBrowserRouter([
   {
@@ -53,7 +54,11 @@ export const router = createBrowserRouter([
             <EventAdmin />
           </ProtectedRoute>
         )
-      }
+      },
+      {
+        path: 'sobre-nos',
+        element: <Sobre/>
+      },
     ]
   }
 ]);
