@@ -9,6 +9,7 @@ import { EventAdmin } from './pages/auth/event-admin/eventAdmin';
 import { SignIn } from './pages/auth/sign-in/sign-in';
 import { SignUp } from './pages/auth/sign-up/sign-up';
 import Sobre from './pages/app/sobre/sobre';
+import Contato from "./pages/app/contato/contato";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ export const router = createBrowserRouter([
       {
         path: 'sobre-nos',
         element: <Sobre/>
+      },
+      {
+        path: 'contato',
+        element: <Contato/>
       },
     ]
   }
