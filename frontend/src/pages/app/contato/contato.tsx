@@ -13,7 +13,7 @@ export default function Contato() {
                 </Description>
                 <ContactInfo>
                     <PhoneNumber>
-                        <strong>Telefone:</strong> <a href="tel:+554800000000">+55 (48) 00000-0000</a>
+                        <strong>Telefone:</strong> <a href="https://wa.link/aljfdq">+55 48 99930‑2968</a>
                     </PhoneNumber>
                     <InstagramLink href="https://www.instagram.com/apasaoludgero/" target="_blank">
                         <span>Instagram</span>
