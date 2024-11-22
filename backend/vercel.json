@@ -1,0 +1,22 @@
+{
+    "version": 2,
+    "buildCommand": "npm run build",
+    "installCommand": "npm install",
+    "outputDirectory": "dist",
+    "builds": [
+      {
+        "src": "dist/server.js",
+        "use": "@vercel/node"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "dist/server.js"
+      }
+    ],
+    "env": {
+      "DATABASE_URL": "postgresql://docker:docker@localhost:15432/adopet-api?schema=public",
+      "JWT_SECRET": "adopet2024"
+    }
+  }
