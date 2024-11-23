@@ -34,7 +34,6 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
         vacinated: false,
         sex: 'F',
     });
-    const [petImgFile, setPetImgFile] = useState<File | null>(null); // Estado para o arquivo da imagem
 
     useEffect(() => {
         if (petData) {
@@ -65,17 +64,10 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
         setPet((prevPet) => ({ ...prevPet, [name]: checked }));
     };
 
-    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const file = e.target.files?.[0] || null;  // Verifica se o arquivo foi selecionado
-        console.log('Selected file:', file); // Adicione esta linha para depurar
-        setPetImgFile(file);  // Define o arquivo da imagem
-    };
 
     const handleSave = async () => {
-        console.log('Pet Image File:', petImgFile); // Debugging line
         try {
-            // Call the onSave function with pet and petImgFile
-            await onSave(pet, petImgFile); // Ensure petImgFile is passed correctly
+            await onSave(pet); 
         } catch (error) {
             console.error('Error uploading pet:', error);
         }
@@ -128,8 +120,7 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
                     <option value="M">Masculino</option>
                 </Select>
 
-                <Label>Imagem do Pet:</Label>
-                <Input type="file" name="petImg" accept="image/*" onChange={handleImageChange} />  {/* Campo para selecionar imagem */}
+      
 
                 <SaveButton onClick={handleSave}>{petData ? 'Salvar' : 'Criar Pet'}</SaveButton>
             </ModalContent>

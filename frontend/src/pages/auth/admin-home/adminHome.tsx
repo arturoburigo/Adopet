@@ -48,27 +48,26 @@ export default function AdminHome() {
         setSelectedPet(null);
     };
 
-    // Modified save handler to work with the API
-    const handleSavePet = async (updatedPet: Pet) => {
+    // Modificado para aceitar a imagem
+    const handleSavePet = async (updatedPet: Pet, petImgFile?: File | null) => {
         try {
             if (!updatedPet.id) {
                 throw new Error('Pet ID is required for editing');
             }
             
-            // Call the API to update the pet
-            await editPetById(updatedPet.id, updatedPet);
+            // Passa a imagem para a API
+            const updatedPetData = await editPetById(updatedPet.id, updatedPet, petImgFile);
             
-            // Update the local state only after successful API call
+            // Atualiza o estado local com os dados retornados da API
             setPets(prevPets => 
                 prevPets.map(pet => 
-                    pet.id === updatedPet.id ? updatedPet : pet
+                    pet.id === updatedPet.id ? updatedPetData.pet : pet
                 )
             );
             
             handleCloseModal();
         } catch (error) {
             console.error("Erro ao atualizar pet:", error);
-            // You might want to show an error message to the user here
         }
     };
 
