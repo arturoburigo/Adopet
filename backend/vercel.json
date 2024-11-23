@@ -14,9 +14,5 @@
         "src": "/(.*)",
         "dest": "dist/server.js"
       }
-    ],
-    "env": {
-      "DATABASE_URL": "postgresql://docker:docker@localhost:15432/adopet-api?schema=public",
-      "JWT_SECRET": "adopet2024"
-    }
+    ]
   }
