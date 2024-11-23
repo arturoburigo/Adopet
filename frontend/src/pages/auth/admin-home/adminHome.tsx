@@ -83,7 +83,7 @@ export default function AdminHome() {
                     <PetCard
                         sex={pet.sex}
                         key={pet.id}
-                        img={`http://adopetapi-production.up.railway.app/files/${pet.petImg}`}
+                        img={`https://adopetapi-production.up.railway.app/files/${pet.petImg}`}
                         petName={pet.name}
                         isAdmin={true}
                         onClickEdit={() => handleOpenModal(pet)} // Abertura do modal no botão Editar
