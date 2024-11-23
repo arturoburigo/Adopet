@@ -8,7 +8,9 @@ interface PetCardProps {
   isAdmin?: boolean; 
   petName: string;
   sex: 'F' | 'M'; 
-  onClickEdit: () => void; 
+  onClickEdit: () => void;
+  onClick: () => void; 
+
   onClickDelete: () => void;
   onClickAdopt: () => void; 
 }
