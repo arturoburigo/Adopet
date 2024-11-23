@@ -24,6 +24,6 @@ export async function editPetById(id: string, updatedPetData: any) {
             'Content-Type': 'multipart/form-data'
         }
     });
-
+    console.log(response.data);
     return response.data;
 }
