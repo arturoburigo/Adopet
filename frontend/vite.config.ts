@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/', // Garante que o base path esteja configurado corretamente
   build: {
-    outDir: 'dist', // Certifique-se de que os arquivos gerados sejam exportados corretamente
+    outDir: 'dist', 
   },
   server: {
     port: 3000, // Porta opcional para ambiente local
