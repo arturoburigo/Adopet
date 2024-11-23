@@ -1,18 +1,21 @@
 {
-    "version": 2,
-    "buildCommand": "npm run build",
-    "installCommand": "npm install",
-    "outputDirectory": "dist",
-    "builds": [
-      {
-        "src": "dist/server.js",
-        "use": "@vercel/node"
+  "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
+  "outputDirectory": "dist",
+  "builds": [
+    {
+      "src": "dist/server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["dist/**", "prisma/**"]
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "dist/server.js"
-      }
-    ]
-  }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/server.js"
+    }
+  ]
+}
