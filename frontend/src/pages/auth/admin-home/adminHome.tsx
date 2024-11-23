@@ -49,14 +49,14 @@ export default function AdminHome() {
     };
 
     // Modificado para aceitar a imagem
-    const handleSavePet = async (updatedPet: Pet, petImgFile?: File | null) => {
+    const handleSavePet = async (updatedPet: Pet) => {
         try {
             if (!updatedPet.id) {
                 throw new Error('Pet ID is required for editing');
             }
             
             // Passa a imagem para a API
-            const updatedPetData = await editPetById(updatedPet.id, updatedPet, petImgFile);
+            const updatedPetData = await editPetById(updatedPet.id, updatedPet);
             
             // Atualiza o estado local com os dados retornados da API
             setPets(prevPets => 
