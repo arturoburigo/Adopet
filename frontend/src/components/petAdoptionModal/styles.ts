@@ -1,6 +1,4 @@
 import styled from 'styled-components';
-import { FaWhatsapp } from 'react-icons/fa';
-
 export const ModalBackground = styled.div`
   position: fixed;
   top: 0;

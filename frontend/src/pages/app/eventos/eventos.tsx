@@ -30,7 +30,7 @@ export function Eventos() {
             key={event.id}
             event={{
               id: event.id || '',
-              img: `http://localhost:3333/files/${event.img}`,
+              img: `http://adopetapi-production.up.railway.app/files/${event.img}`,
               title: event.title,
               description: event.description,
               date: event.date,

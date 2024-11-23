@@ -61,7 +61,7 @@ const PetList: React.FC = () => {
                     {pets.map((pet) => (
                         <PetCard
                             key={pet.id}
-                            img={`http://localhost:3333/files/${pet.petImg}`}
+                            img={`http://adopetapi-production.up.railway.app/files/${pet.petImg}`}
                             petName={pet.name}
                             isAdmin={false} // Assuming not admin in this case
                             sex={pet.sex}
@@ -79,7 +79,7 @@ const PetList: React.FC = () => {
                     show={isModalOpen}
                     onClose={closeModal}
                     petName={selectedPet.name}
-                    petImg={`http://localhost:3333/files/${selectedPet.petImg}`}
+                    petImg={`http://adopetapi-production.up.railway.app/files/${selectedPet.petImg}`}
                     sex={selectedPet.sex}
                     petAge={selectedPet.age}          // Certifique-se de que está passando a idade corretamente
                     petSize={selectedPet.size}        // Certifique-se de que está passando o tamanho corretamente

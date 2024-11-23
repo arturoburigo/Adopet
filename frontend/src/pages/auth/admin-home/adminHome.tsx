@@ -83,12 +83,16 @@ export default function AdminHome() {
                     <PetCard
                         sex={pet.sex}
                         key={pet.id}
-                        img={`http://localhost:3333/files/${pet.petImg}`}
+                        img={`http://adopetapi-production.up.railway.app/files/${pet.petImg}`}
                         petName={pet.name}
                         isAdmin={true}
-                        onClickEdit={() => handleOpenModal(pet)}  // Abertura do modal no botão Editar
-                        onClickDelete={() => pet.id && handleDeletePet(pet.id)}  // Excluir pet
-                    />
+                        onClickEdit={() => handleOpenModal(pet)} // Abertura do modal no botão Editar
+                        onClickDelete={() => pet.id && handleDeletePet(pet.id)} // Excluir pet
+                        onClick={function (): void {
+                            throw new Error('Function not implemented.');
+                        } } onClickAdopt={function (): void {
+                            throw new Error('Function not implemented.');
+                        } }                    />
                 ))}
             </AdminHomeContainer>
 
