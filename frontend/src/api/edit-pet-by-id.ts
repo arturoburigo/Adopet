@@ -1,6 +1,6 @@
 import { api } from "../lib/axios";
 
-export async function editPetById(id: string, updatedPetData: any, petImgFile?: File | null) {
+export async function editPetById(id: string, updatedPetData: any) {
     const token = localStorage.getItem('token');
 
     if (!token) {
