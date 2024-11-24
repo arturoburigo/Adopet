@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ModalContainer, ModalContent, CloseButton, Input, Checkbox, Label, TextArea, SaveButton, Select } from './styles';
 
 export interface Pet {
-    id?: string;  // ID é opcional para novo pet
+    id?: string;
     name: string;
     age: string;
     breed: string;
@@ -19,7 +19,7 @@ interface PetModalAdminProps {
     isOpen: boolean;
     onClose: () => void;
     petData: Pet | null;
-    onSave: (pet: Pet, petImgFile?: File | null) => void;  // Adicionar o parâmetro da imagem
+    onSave: (pet: Pet, petImgFile?: File | null) => void;
 }
 
 export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, petData, onSave }) => {
@@ -34,12 +34,12 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
         vacinated: false,
         sex: 'F',
     });
+    const [selectedImage, setSelectedImage] = useState<File | null>(null);
 
     useEffect(() => {
         if (petData) {
-            setPet(petData); // Carregar os dados do pet para edição
+            setPet(petData);
         } else {
-            // Se não houver petData, significa que é um novo pet
             setPet({
                 name: '',
                 age: '',
@@ -51,6 +51,7 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
                 vacinated: false,
                 sex: 'F',
             });
+            setSelectedImage(null);
         }
     }, [petData]);
 
@@ -64,15 +65,19 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
         setPet((prevPet) => ({ ...prevPet, [name]: checked }));
     };
 
+    const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (e.target.files && e.target.files[0]) {
+            setSelectedImage(e.target.files[0]);
+        }
+    };
 
     const handleSave = async () => {
         try {
-            await onSave(pet); 
+            await onSave(pet, selectedImage);
         } catch (error) {
             console.error('Error uploading pet:', error);
         }
     };
-    
 
     if (!isOpen) return null;
 
@@ -120,7 +125,12 @@ export const PetModalAdmin: React.FC<PetModalAdminProps> = ({ isOpen, onClose, p
                     <option value="M">Masculino</option>
                 </Select>
 
-      
+                <Label>Imagem do Pet:</Label>
+                <Input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageChange}
+                />
 
                 <SaveButton onClick={handleSave}>{petData ? 'Salvar' : 'Criar Pet'}</SaveButton>
             </ModalContent>
