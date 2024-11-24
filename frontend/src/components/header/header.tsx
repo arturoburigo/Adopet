@@ -29,8 +29,8 @@ export function Header() {
                 <a href="/contato">Contato</a>
             </NavLinks>
             <SocialIcons>
-                <a href="https://instagram.com"><FaInstagram size={24} /></a>
-                <a href="https://facebook.com"><FaFacebook size={24} /></a>
+                <a href="https://www.instagram.com/apasaoludgero/"><FaInstagram size={24} /></a>
+                <a href="https://www.facebook.com/apasaoludgero"><FaFacebook size={24} /></a>
             </SocialIcons>
             {isOpen && (
                 <MobileMenu>

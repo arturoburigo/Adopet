@@ -1,19 +1,4 @@
 services:
-  api-gympass-pg:
-    image: bitnami/postgresql
-    container_name: adopet-pg
-    environment:
-      POSTGRESQL_PASSWORD: docker
-      POSTGRESQL_USERNAME: docker
-      POSTGRESQL_DATABASE: adopet-api
-    ports:
-      - "15432:5432"
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "docker"]
-      interval: 5s
-      timeout: 5s
-      retries: 5
-
   api:
     container_name: adopet-api
     build: 
@@ -25,7 +10,7 @@ services:
       api-gympass-pg:
         condition: service_healthy
     environment:
-      DATABASE_URL: postgresql://docker:docker@api-gympass-pg:5432/adopet-api
+      DATABASE_URL: postgresql://postgres.vztgjmeiojctpibbzjlz:jHo3wgVR50M9VFtf@aws-0-us-east-1.pooler.supabase.com:5432/postgres?pgbouncer=true&connection_limit=1&pool_timeout=20
     command: sh -c "npx prisma generate && npx prisma migrate deploy && npm run start:dev"
     # Volume para desenvolvimento - permite hot reload
     volumes:
