@@ -72,11 +72,12 @@ export const PetAdoptionModal: React.FC<ModalProps> = ({
                         <GenderIcon color={genderColor}>{genderIcon}</GenderIcon>
                     </InfoItem>
                     <InfoItem><InfoLabel>Idade:</InfoLabel> {formatAge(petAge)}</InfoItem> {/* Chama a função formatAge */}
-                    <InfoItem><InfoLabel>Sobre:</InfoLabel> {petBreed}</InfoItem>
+                    <InfoItem><InfoLabel>Raça:</InfoLabel> {petBreed}</InfoItem>
                     <InfoItem><InfoLabel>Tamanho:</InfoLabel> {translateSize(petSize)}</InfoItem> {/* Chama a função translateSize */}
                     <InfoItem><InfoLabel>Castrado:</InfoLabel> {castrateText}</InfoItem>
                     <InfoItem><InfoLabel>Vacinado:</InfoLabel> {vacinatedText}</InfoItem>
-                    <InfoItem><InfoLabel>Raça:</InfoLabel> {petAbout}</InfoItem>
+                    <InfoItem><InfoLabel>Sobre:</InfoLabel> {petAbout}</InfoItem>
+
                 </ModalContent>
                 <ModalFooter>
                     <WhatsappButton href={whatsappLink} target="_blank" rel="noopener noreferrer">
