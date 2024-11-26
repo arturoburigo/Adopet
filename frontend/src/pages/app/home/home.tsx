@@ -17,6 +17,7 @@ export type Pet = {
     castrate: boolean;
     vacinated: boolean;
     whatsapp: string;
+    breed: string;
 };
 
 const PetList: React.FC = () => {
@@ -79,6 +80,7 @@ const PetList: React.FC = () => {
                     show={isModalOpen}
                     onClose={closeModal}
                     petName={selectedPet.name}
+                    petBreed={selectedPet.breed}
                     petImg={`https://adopetapi-production.up.railway.app/files/${selectedPet.petImg}`}
                     sex={selectedPet.sex}
                     petAge={selectedPet.age}          // Certifique-se de que está passando a idade corretamente

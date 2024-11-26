@@ -17,10 +17,11 @@ interface ModalProps {
     petCastrate: boolean; // Altere para booleano
     petVacinated: boolean; // Altere para booleano
     petWhatsapp: string;
+    petBreed: string;
 }
 
 export const PetAdoptionModal: React.FC<ModalProps> = ({
-    show, onClose, petName, petImg, sex, petAbout, petAge, petCastrate, petSize, petVacinated, petWhatsapp
+    show, onClose, petName, petImg, sex, petAbout, petAge, petCastrate, petSize, petVacinated, petWhatsapp, petBreed
 }) => {
     if (!show) return null;
 
@@ -71,6 +72,7 @@ export const PetAdoptionModal: React.FC<ModalProps> = ({
                         <GenderIcon color={genderColor}>{genderIcon}</GenderIcon>
                     </InfoItem>
                     <InfoItem><InfoLabel>Idade:</InfoLabel> {formatAge(petAge)}</InfoItem> {/* Chama a função formatAge */}
+                    <InfoItem><InfoLabel>Sobre:</InfoLabel> {petBreed}</InfoItem>
                     <InfoItem><InfoLabel>Tamanho:</InfoLabel> {translateSize(petSize)}</InfoItem> {/* Chama a função translateSize */}
                     <InfoItem><InfoLabel>Castrado:</InfoLabel> {castrateText}</InfoItem>
                     <InfoItem><InfoLabel>Vacinado:</InfoLabel> {vacinatedText}</InfoItem>
