@@ -76,7 +76,7 @@ export const PetAdoptionModal: React.FC<ModalProps> = ({
                     <InfoItem><InfoLabel>Tamanho:</InfoLabel> {translateSize(petSize)}</InfoItem> {/* Chama a função translateSize */}
                     <InfoItem><InfoLabel>Castrado:</InfoLabel> {castrateText}</InfoItem>
                     <InfoItem><InfoLabel>Vacinado:</InfoLabel> {vacinatedText}</InfoItem>
-                    <InfoItem><InfoLabel>Sobre:</InfoLabel> {petAbout}</InfoItem>
+                    <InfoItem><InfoLabel>Raça:</InfoLabel> {petAbout}</InfoItem>
                 </ModalContent>
                 <ModalFooter>
                     <WhatsappButton href={whatsappLink} target="_blank" rel="noopener noreferrer">
