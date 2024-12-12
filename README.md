@@ -32,7 +32,7 @@ POST /register
 
 ### Login
 ```http
-POST /sessions![Uploading 1708843513940.jpeg…]()
+POST /sessions
 
 ```
 
